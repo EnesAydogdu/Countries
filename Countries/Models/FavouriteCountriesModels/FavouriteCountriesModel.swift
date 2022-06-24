@@ -8,4 +8,5 @@
 struct FavouriteCountriesModel: Codable {
     var countryName: String
     var isSaved: Bool
+    var countryCode: String
 }

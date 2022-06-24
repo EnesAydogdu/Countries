@@ -46,7 +46,7 @@ struct NetworkService {
         task.resume()
     }
     
-    func fetchCountryDetails(countryCode: String?, completion: @escaping (CountryDetailsResponseModel) -> ()) {
+    func fetchCountryDetails(countryCode: String?, completion: @escaping (CountryDetailsResponseModel?, Error?) -> ()) {
         guard let countryCode = countryCode else {
             return
         }
@@ -64,12 +64,15 @@ struct NetworkService {
             }
             if let response = response as? HTTPURLResponse {
                 print("Response HTTP Status code: \(response.statusCode)")
+                if !(response.statusCode == 200) {
+                    completion(nil, error)
+                }
             }
             if let data = data {
                 let decoder = JSONDecoder()
                 do {
                     let countryDetails = try decoder.decode(CountryDetailsResponseModel.self, from: data)
-                    completion(countryDetails)
+                    completion(countryDetails,nil)
                 } catch {
                     print(error.localizedDescription)
                 }

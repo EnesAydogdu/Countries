@@ -12,14 +12,12 @@ class CountryListTableViewCell: UITableViewCell {
     
     private var isCountrySaved: Bool = false
     var indexPath: Int?
-    var savedCountriesList: [Countries] = []
+    var savedCountriesList: [FavouriteCountriesModel] = []
     var countryCode: String?
     var wikiDataId: String?
     
-    var buttonTapCallback: () -> ()  = { }
-        
+    var buttonTapCallback: () -> () = { }
 
-    
     @IBOutlet weak var countryName: UILabel!
     @IBOutlet weak var borderView: UIView! {
         didSet {
@@ -34,22 +32,7 @@ class CountryListTableViewCell: UITableViewCell {
     @IBOutlet weak var favouriteButton: UIButton!
     
     @IBAction func dipTappedFavouriteButton(_ sender: Any) {
-//        if !isCountrySaved {
-//            isCountrySaved = true
-//            favouriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-//            let savedCountry = Countries(code: countryCode, name: countryName.text, wikiDataId: wikiDataId)
-//            let array : [Countries]
-//            if let data = try? PropertyListEncoder().encode(array) {
-//                UserDefaults.standard.set(data, forKey: "FavouritesList")
-//            }
-//            print(savedCountriesList)
-//        } else {
-//            isCountrySaved = false
-//            favouriteButton.setImage(UIImage(systemName: "star"), for: .normal)
-//            print(savedCountriesList)
-//            let index = savedCountriesList.firstIndex { $0.name == countryName.text }
-//            print(index)
-//        }
-        buttonTapCallback()
+            buttonTapCallback()
+
     }
 }

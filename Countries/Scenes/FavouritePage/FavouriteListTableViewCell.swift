@@ -11,7 +11,7 @@ import CoreData
 
 class FavouriteListTableViewCell: UITableViewCell {
     
-    var completion: (() -> ())?
+    var completion: () -> () = { }
     
     @IBOutlet weak var savedCountryName: UILabel!
     @IBOutlet weak var saveButton: UIButton!
@@ -29,6 +29,8 @@ class FavouriteListTableViewCell: UITableViewCell {
     var indexPath: Int?
 
     @IBAction func didTappedSaveButton(_ sender: Any) {
-        completion
+        completion()
+
     }
+
 }

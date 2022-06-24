@@ -45,8 +45,7 @@
                                                                 <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </buttonConfiguration>
                                                             <connections>
-                                                                <action selector="didTappedSaveButton:" destination="5Hl-m2-LBV" eventType="touchUpInside" id="WMK-6U-5c0"/>
-                                                                <action selector="didTappedSavedButton:" destination="5Hl-m2-LBV" eventType="touchUpInside" id="gXy-aM-rbg"/>
+                                                                <action selector="didTappedSaveButton:" destination="5Hl-m2-LBV" eventType="touchUpInside" id="ToQ-Ko-eMx"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -215,8 +214,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LpU-IK-Me4">
-                                <rect key="frame" x="0.0" y="87" width="414" height="374"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.and.pencil.and.ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LpU-IK-Me4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="371.5"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wS9-u3-pNp">
                                 <rect key="frame" x="20" y="505" width="115" height="21"/>
@@ -263,9 +263,15 @@
                                 <action selector="backButtonAction:" destination="GJy-6y-9Ik" id="5F4-Gz-4v2"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="star" catalog="system" id="B1I-Ce-hhm">
+                            <connections>
+                                <action selector="didTappedFavouriteButton:" destination="GJy-6y-9Ik" id="xyY-9F-TCZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="countryCodeLabel" destination="2Iz-03-kXg" id="iGM-Pg-I6b"/>
+                        <outlet property="favouriteButton" destination="B1I-Ce-hhm" id="58f-nY-joW"/>
                         <outlet property="flagImageView" destination="LpU-IK-Me4" id="KCx-ir-uFg"/>
                     </connections>
                 </viewController>
@@ -311,7 +317,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="CW6-Fm-fiQ">
             <objects>
-                <tabBarController id="E2m-KC-LCY" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="TabBarController" storyboardIdentifier="TabBarController" id="E2m-KC-LCY" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O6u-FA-CLj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -394,7 +400,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

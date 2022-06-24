@@ -15,4 +15,5 @@ struct CountryDetails: Codable {
     var code: String?
     var flagImageUri: String?
     var wikiDataId: String?
+    var name: String?
 }
