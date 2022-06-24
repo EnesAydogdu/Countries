@@ -11,22 +11,17 @@ import UIKit
 class HomePageViewController: UIViewController {
     
     private var countryList: CountryListResponseModel?
-    
     @IBOutlet weak var countryListTableView: UITableView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveCountryList()
         configureTableView()
+        
     }
-    
     private func configureTableView() {
         countryListTableView.separatorStyle = .none
         countryListTableView.estimatedRowHeight = 300;
-
-
     }
     
     private func retrieveCountryList() {
@@ -47,6 +42,7 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CountryListTableViewCell", for: indexPath) as! CountryListTableViewCell
         cell.countryName.text = countryList?.data[indexPath.row]?.name
+        cell.indexPath = indexPath.row
         cell.selectionStyle = .none
         return cell
     }
@@ -56,7 +52,9 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("asdf")
+        if let detailsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "DetailsPageViewController") as? DetailsPageViewController {
+            detailsViewController.countryCodeText = countryList?.data[indexPath.row]?.code
+            navigationController?.pushViewController(detailsViewController, animated: true)
+        }
     }
-
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavouriteCountries" representedClassName="FavouriteCountries" syncable="YES" codeGenerationType="class">
+        <attribute name="countryName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isSaved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="FavouriteCountries" positionX="-63" positionY="-18" width="128" height="74"/>
+    </elements>
+</model>
