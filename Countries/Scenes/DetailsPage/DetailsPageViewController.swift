@@ -12,12 +12,14 @@ import WebKit
 
 class DetailsPageViewController: UIViewController, WKUIDelegate {
     
-    @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var countryCodeLabel: UILabel!
     @IBOutlet weak var favouriteButton: UIBarButtonItem!
+    @IBOutlet weak var webView: WKWebView!
     
+    @IBOutlet weak var imageWebView: WKWebView!
+    
+    @IBOutlet weak var flagImageView: UIImageView!
     private var countryDetails: CountryDetails?
-    private var webView: WKWebView!
     private var wikiCode: String?
     private var countryName: String?
     
@@ -32,7 +34,17 @@ class DetailsPageViewController: UIViewController, WKUIDelegate {
         retrieveCountryDetails()
         configureFavouriteButton()
         retrieveSavedCountries()
+        webView.isHidden = true
         
+    }
+    
+    func loadSVGImage(imageURL: String?) {
+        if let url = imageURL {
+            let request = URLRequest(url: URL(string: url)!)
+            webView.load(request)
+            webView.scrollView.isScrollEnabled = false
+            
+        }
     }
     
     private func retrieveCountryDetails() {
@@ -40,6 +52,7 @@ class DetailsPageViewController: UIViewController, WKUIDelegate {
             if let response = response {
                 self?.countryDetails = response.data
                 DispatchQueue.main.async {
+                    //self?.deneme(imageURL: self?.countryDetails?.flagImageUri)
                     self?.loadFlagImageFromUrl(imageURL: self?.countryDetails?.flagImageUri)
                     self?.countryCodeLabel.text = self?.countryDetails?.code
                     self?.wikiCode = self?.countryDetails?.wikiDataId
@@ -58,12 +71,19 @@ class DetailsPageViewController: UIViewController, WKUIDelegate {
     }
     
     private func loadFlagImageFromUrl(imageURL: String?) {
-        if let url = imageURL {
-            let imageUrlAsPNG = url.replacingOccurrences(of: "svg", with: "png")
-            let url = URL(string: imageUrlAsPNG)
-            flagImageView.kf.setImage(with: url)
-        }
         
+        if let urlSVG = imageURL {
+            let imageUrlAsPNG = urlSVG.replacingOccurrences(of: "svg", with: "png")
+            let urlPNG = URL(string: imageUrlAsPNG)
+            flagImageView.kf.setImage(with: urlPNG)
+            if (flagImageView.image != nil) {
+                flagImageView.isHidden = false
+            } else {
+                webView.isHidden = false
+                flagImageView.isHidden = true
+                loadSVGImage(imageURL: urlSVG)
+            }
+        }
     }
     
     private func configureFavouriteButton() {

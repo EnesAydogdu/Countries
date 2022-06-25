@@ -214,10 +214,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.and.pencil.and.ellipsis" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LpU-IK-Me4">
-                                <rect key="frame" x="0.0" y="88" width="414" height="371.5"/>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Code: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wS9-u3-pNp">
                                 <rect key="frame" x="20" y="505" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -240,18 +236,45 @@
                                     <action selector="navigateToWikiPage:" destination="GJy-6y-9Ik" eventType="touchUpInside" id="MVO-SA-xP2"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZ6-j4-TVe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="385"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gNa-z4-82t">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="385"/>
+                                    </imageView>
+                                    <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wpg-We-hef">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="385"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="gNa-z4-82t" secondAttribute="bottom" id="173-kn-zxG"/>
+                                    <constraint firstAttribute="trailing" secondItem="wpg-We-hef" secondAttribute="trailing" id="JbI-X7-Y9v"/>
+                                    <constraint firstItem="gNa-z4-82t" firstAttribute="top" secondItem="IZ6-j4-TVe" secondAttribute="top" id="Lku-ts-hJb"/>
+                                    <constraint firstItem="gNa-z4-82t" firstAttribute="leading" secondItem="IZ6-j4-TVe" secondAttribute="leading" id="M5T-vU-76L"/>
+                                    <constraint firstAttribute="bottom" secondItem="wpg-We-hef" secondAttribute="bottom" id="PNK-yj-JCw"/>
+                                    <constraint firstItem="wpg-We-hef" firstAttribute="top" secondItem="IZ6-j4-TVe" secondAttribute="top" id="Xdt-Fv-3p3"/>
+                                    <constraint firstAttribute="trailing" secondItem="gNa-z4-82t" secondAttribute="trailing" id="fGW-FK-acU"/>
+                                    <constraint firstItem="wpg-We-hef" firstAttribute="leading" secondItem="IZ6-j4-TVe" secondAttribute="leading" id="hF7-m9-J0A"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1EG-Fx-kzO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="LpU-IK-Me4" firstAttribute="trailing" secondItem="1EG-Fx-kzO" secondAttribute="trailing" id="5kT-Hv-Qmv"/>
-                            <constraint firstItem="LpU-IK-Me4" firstAttribute="leading" secondItem="1EG-Fx-kzO" secondAttribute="leading" id="GwP-lH-bBZ"/>
+                            <constraint firstAttribute="trailing" secondItem="IZ6-j4-TVe" secondAttribute="trailing" id="74T-xf-RX2"/>
                             <constraint firstItem="COv-m8-zmS" firstAttribute="leading" secondItem="1EG-Fx-kzO" secondAttribute="leading" constant="20" id="Hwk-XI-aws"/>
+                            <constraint firstItem="IZ6-j4-TVe" firstAttribute="top" secondItem="1EG-Fx-kzO" secondAttribute="top" id="Ibg-pw-VEG"/>
                             <constraint firstItem="COv-m8-zmS" firstAttribute="top" secondItem="wS9-u3-pNp" secondAttribute="bottom" constant="8" symbolic="YES" id="JKg-eh-5xC"/>
                             <constraint firstItem="2Iz-03-kXg" firstAttribute="leading" secondItem="wS9-u3-pNp" secondAttribute="trailing" constant="7" id="QqE-e2-SZS"/>
-                            <constraint firstItem="wS9-u3-pNp" firstAttribute="top" secondItem="LpU-IK-Me4" secondAttribute="bottom" constant="44" id="SRH-21-5CY"/>
-                            <constraint firstItem="LpU-IK-Me4" firstAttribute="top" secondItem="1EG-Fx-kzO" secondAttribute="top" id="c5H-XS-afi"/>
+                            <constraint firstItem="IZ6-j4-TVe" firstAttribute="leading" secondItem="1EG-Fx-kzO" secondAttribute="leading" id="fKM-Ri-QGG"/>
                             <constraint firstItem="1EG-Fx-kzO" firstAttribute="bottom" secondItem="2Iz-03-kXg" secondAttribute="bottom" constant="336" id="iqx-TP-fxD"/>
+                            <constraint firstItem="wS9-u3-pNp" firstAttribute="top" secondItem="IZ6-j4-TVe" secondAttribute="bottom" constant="32" id="izh-Jd-2ne"/>
                             <constraint firstItem="2Iz-03-kXg" firstAttribute="centerY" secondItem="wS9-u3-pNp" secondAttribute="centerY" id="sac-wo-hRI"/>
                             <constraint firstItem="wS9-u3-pNp" firstAttribute="leading" secondItem="1EG-Fx-kzO" secondAttribute="leading" constant="20" id="zgu-oF-u1X"/>
                         </constraints>
@@ -272,7 +295,9 @@
                     <connections>
                         <outlet property="countryCodeLabel" destination="2Iz-03-kXg" id="iGM-Pg-I6b"/>
                         <outlet property="favouriteButton" destination="B1I-Ce-hhm" id="58f-nY-joW"/>
-                        <outlet property="flagImageView" destination="LpU-IK-Me4" id="KCx-ir-uFg"/>
+                        <outlet property="flagImageView" destination="gNa-z4-82t" id="DoZ-cW-20R"/>
+                        <outlet property="imageWebView" destination="wpg-We-hef" id="ra0-Wl-dLQ"/>
+                        <outlet property="webView" destination="wpg-We-hef" id="aFG-qL-Olr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4wD-2y-Tjj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -400,7 +425,6 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
-        <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
